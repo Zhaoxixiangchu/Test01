@@ -1,0 +1,4 @@
+# Test01
+人事管理系统
+Controller类主要是控制的请求视图
+domain类是具体实体的Setter和Getter

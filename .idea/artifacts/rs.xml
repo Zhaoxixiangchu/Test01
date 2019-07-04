@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="rs">
+    <output-path>$PROJECT_DIR$/out/artifacts/rs</output-path>
+    <root id="archive" name="rs.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Test01" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="classmate" />
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

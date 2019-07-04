@@ -1,0 +1,87 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: LPY
+  Date: 2019/6/24
+  Time: 10:56
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>人事管理系统管理员登录</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.all.js" type="text/javascript"></script>
+  </head>
+<%
+  session.invalidate();
+%>
+
+  <body>
+
+  <script type="text/javascript">
+    var flag = '${flag}';
+    console.log(flag);
+    if(flag=="false"){
+      layer.alert('请检查你的用户名、密码以及登录身份！',{
+        icon:5,
+        title:'提示'
+      });
+    }
+  </script>
+
+
+
+  <form class="layui-form" action="${pageContext.request.contextPath}/Login" method="post" >
+    <div class="container">
+      <div class="layui-form-mid layui-word-aux " style="margin-left: 45%">
+        <label  >用户登录</label>
+      </div>
+      <div class="layui-form-item" style="margin-left: 20px;">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-inline">
+          <input type="text" name="user_name" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item" style="margin-left: 20px;">
+        <label class="layui-form-label">编 &nbsp;&nbsp;号</label>
+        <div class="layui-input-inline">
+          <input type="text" name="user_id" required  lay-verify="required" placeholder="请输入编号" autocomplete="off" class="layui-input verity">
+        </div>
+      </div>
+
+      <div class="layui-form-item" style="margin-left: 20px;">
+        <label class="layui-form-label">密 &nbsp;&nbsp;码</label>
+        <div class="layui-input-inline">
+          <input type="password" name="user_pwd" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="margin-left: 40px;">身 &nbsp;&nbsp;份</label>
+        <div class="layui-input-inline">
+          <select name="identify" required lay-verify="required">
+            <option value="">请选择身份</option>
+            <option value="领导">领导</option>
+            <option value="员工">员工</option>
+          </select>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <button type="submit" class="layui-btn" lay-submit >登陆</button>
+        </div>
+      </div>
+      <a href="FindPwd.jsp" target="_blank" class="font-set">忘记密码?</a>  <a href="Register.jsp" target="_blank" class="font-set">立即注册</a>
+    </div>
+  </form>
+  <script type="text/javascript">
+    layui.use('form', function(){
+      var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+      form.render();
+    });
+  </script>
+  </body>
+</html>
